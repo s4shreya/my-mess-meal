@@ -1,0 +1,22 @@
+.container {
+    /* position: absolute; 
+     right: 0; 
+     margin: 10px; */
+}
+
+.image {
+    float: left;
+    position: absolute;
+    left: 200px;
+    /* margin: auto; */
+}
+
+.firstRow {
+    clear: both;
+    float: right;
+}
+
+.secondRow {
+    clear: both;
+    float: right;
+}

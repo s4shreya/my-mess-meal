@@ -1,0 +1,20 @@
+.subheading {
+    text-align: center;
+}
+
+.content {
+    justify-content: center;
+}
+
+.toggleStatement {
+    margin: 15px;
+}
+
+.toggleButton {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.button {
+    width: 150px;
+}

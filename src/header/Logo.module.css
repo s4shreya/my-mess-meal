@@ -1,0 +1,18 @@
+.logo {
+  font-size:40px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: white;
+  letter-spacing:3px;
+  text-shadow:2px 2px 5px;
+  float: left;
+  line-height: 100px;
+}
+
+.name {
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.image {
+  text-decoration: none;
+}

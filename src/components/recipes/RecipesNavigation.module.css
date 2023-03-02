@@ -1,0 +1,21 @@
+.navbar {
+    background-color: rgb(214, 178, 231);
+    padding: 10px;
+    margin: 10px 0 50px 0;
+    width: 500px;
+    margin: 20px auto;
+    border-radius: 30px;
+}
+
+#tabButton {
+    color: purple;
+}
+
+#tabButton:hover {
+    font-weight: 900;
+    color: palevioletred;
+}
+
+#tabButton:selected {
+    text-decoration: solid;
+}
