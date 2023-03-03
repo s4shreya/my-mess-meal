@@ -6,6 +6,7 @@ import RecipeNavigation from "./RecipesNavigation";
 function AddRecipes() {
 const navigate = useNavigate();
 
+    // function to store the data received from user in database
   const addRecipeHandler = (recipeData) => {
     fetch(
       "https://my-mess-meal-56ef5-default-rtdb.firebaseio.com/recipes.json",
