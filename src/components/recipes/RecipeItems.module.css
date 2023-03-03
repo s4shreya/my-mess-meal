@@ -5,6 +5,11 @@
     margin: 50px 0;
 }
 
+.loading p {
+  font-size: 50px;
+  margin: 30px;
+}
+
 @media (max-width: 800px) {
     .cardContainer {
       flex-direction: column;
