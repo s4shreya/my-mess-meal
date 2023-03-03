@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 
 import RecipeNavigation from "./RecipesNavigation";
 import RecipeCard from "./RecipeCard";
@@ -16,6 +16,7 @@ function RecipeItems() {
       </p>
     </section>
   }
+  setIsLoading(true);
 
   return (
     <div className={styles.container}>
