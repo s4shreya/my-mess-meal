@@ -1,5 +1,5 @@
 import styles from './UpcomingMealModal.module.css';
-import Menu from '../../pages/Menu';
+// import Menu from '../../pages/Menu';
 
 function UpcomingMealModal(props) {
     console.log(props);
