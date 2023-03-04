@@ -1,5 +1,4 @@
 import styles from "./RecipeCard.module.css";
-import mango from "../../images/back.JPG";
 
 function RecipeCard(props) {
   return (
@@ -17,8 +16,10 @@ function RecipeCard(props) {
           <img src={props.image} alt="food" height={150} />
         </div>
       </div>
-
-      <div className={styles.rowImage}>Instructions: {props.instructions}</div>
+      <div className={styles.rowBox}>Instructions: {props.instructions}</div>
+      <div className={styles.btn}>
+        <button className={styles.favoriteButton}>Remove from Favorites</button>
+      </div>
     </div>
   );
 }

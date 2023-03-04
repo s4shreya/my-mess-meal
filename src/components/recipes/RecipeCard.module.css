@@ -7,6 +7,11 @@
     background-color: rgb(120, 212, 191);
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(43, 103, 167, 0.2);
+    transition: transform 0.5s;
+}
+
+.container:hover {
+    transform: scale(1.05,1.05);
 }
 
 #title {
@@ -28,7 +33,28 @@ clear: both;
     float: right;
 }
 
-.rowImage {
+.rowBox {
     clear: both;
     padding: 15px;
+    height: 100px;
+}
+
+.btn {
+    text-align: center;
+}
+
+.favoriteButton {
+    text-align: center;
+    width: 200px;
+    color: rgb(8, 6, 104);
+    background-color: rgb(242, 233, 242);
+    border: rgb(146, 22, 223) solid 5px;
+    border-radius: 6px;
+    transition: transform 1s;
+}
+
+.favoriteButton:hover {
+    background-color: rgb(236, 171, 220);
+    box-shadow: 20px 20px 50px salmon;
+    transform: scale(1.3,1.3);
 }
