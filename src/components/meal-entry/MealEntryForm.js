@@ -29,7 +29,7 @@ function MyVerticallyCenteredModal(props) {
           Please mark your availability for this meal here. Food is precious and
           saving it can feed many people on earth.
           <strong> Note:</strong> This entry is only for the upcoming meal. To
-          fill further entries. please visit{" "}
+          fill further entries, please visit{" "}
           <Link to="/meal-calendar">Meal Calendar</Link>.
         </p>
         <Form>

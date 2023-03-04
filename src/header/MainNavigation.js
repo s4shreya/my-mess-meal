@@ -10,13 +10,13 @@ function MainNavigation() {
         <Link to="/about" className={styles.link}>About</Link>
       </li>
       <li className={styles.listItems}>
+        <Link to="/recipes" className={styles.link}>Recipes</Link>
+      </li>
+      <li className={styles.listItems}>
         <Link to="/menu" className={styles.link}>Menu</Link>
       </li>
       <li className={styles.listItems}>
         <Link to="/meal-calendar" className={styles.link}>Meal Calendar</Link>
-      </li>
-      <li className={styles.listItems}>
-        <Link to="/recipes" className={styles.link}>Recipes</Link>
       </li>
       <li className={styles.listItems}>
         <Link to="/feedback" className={styles.link}>Feedback</Link>

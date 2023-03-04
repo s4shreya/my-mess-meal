@@ -1,8 +1,33 @@
+import { useContext } from 'react';
+
 import styles from "./RecipeCard.module.css";
+import FavoritesContext from '../../store/favorites-context';
 
 function RecipeCard(props) {
+  const favoritesCtxt = useContext(FavoritesContext);
+
+  const isItemFavorite = favoritesCtxt.itemIsFavorite(props.id);
+
+  const favoriteStatusHandler = () => {
+    if(isItemFavorite) {
+      favoritesCtxt.removeFavorite(props.id);
+    }
+    else {
+      favoritesCtxt.addFavorite({
+        id: props.id,
+        name: props.name,
+        cuisine: props.cuisine,
+        time: props.time,
+        image: props.image,
+        calories: props.calories,
+        instructions: props.instructions
+      });
+    }
+  };
+
   return (
     <div className={styles.container}>
+      <div className={styles.dataContainer}>
       <div id={styles.title}>
         <h3>{props.name}</h3>
       </div>
@@ -17,8 +42,11 @@ function RecipeCard(props) {
         </div>
       </div>
       <div className={styles.rowBox}>Instructions: {props.instructions}</div>
+      </div>
       <div className={styles.btn}>
-        <button className={styles.favoriteButton}>Remove from Favorites</button>
+        <button className={styles.favoriteButton} onClick={favoriteStatusHandler}>
+          {isItemFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+        </button>
       </div>
     </div>
   );
