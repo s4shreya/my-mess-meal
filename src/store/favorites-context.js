@@ -13,15 +13,17 @@ export function FavoritesContextProvider(props) {
 
     const addFavoriteHandler = favoriteRecipe => {
         return (setUserFavorites( prevUserFavorite => {
+            console.log(`in add handler ${prevUserFavorite}`);
             return prevUserFavorite.concat(favoriteRecipe);
         }));
     };
 
-    const removeFavoriteHandler = recipeId => {
-        return (setUserFavorites( prevUserFavorite => {
-            return prevUserFavorite.filter(recipe => recipe.Id !== recipeId);
-            console.log("in remove favorite");
-        }));
+    function removeFavoriteHandler(recipeId) {
+        setUserFavorites(userFavorites.filter(recipe => recipe.id !== recipeId));
+        // setUserFavorites( prevUserFavorite => {
+        //     console.log("in remove favorite" + prevUserFavorite.filter(recipe => recipe.Id !== recipeId));
+        //     return prevUserFavorite.filter(recipe => recipe.Id !== recipeId);
+        // })
     };
 
     const itemIsFavorite = recipeId => {
