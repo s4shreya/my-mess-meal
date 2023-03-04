@@ -1,30 +1,43 @@
-import {  useState } from 'react';
+import { useState, useEffect } from "react";
 
 import RecipeNavigation from "./RecipesNavigation";
-import RecipeCard from "./RecipeCard";
 import styles from "./RecipeItems.module.css";
-
-const recipeList = [];
+import RecipeList from "./RecipeList";
 
 function RecipeItems() {
-  const [ isLoading, setIsLoading ] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedRecipes, setLoadedRecipes] = useState([]);
 
-  if(isLoading) {
-    return <section className={styles.loading}>
-      <p>
-        Loading.....
-      </p>
-    </section>
+  useEffect(() => {
+    setIsLoading(true);
+    fetch("https://my-mess-meal-56ef5-default-rtdb.firebaseio.com/recipes.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const recipes = [];
+        for (const key in data) {
+          const recipe = {
+            id: key,
+            ...data[key],
+          };
+          recipes.push(recipe);
+        }
+        setIsLoading(false);
+        setLoadedRecipes(recipes);
+      });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section className={styles.loading}>
+        <p>Loading.....</p>
+      </section>
+    );
   }
-  setIsLoading(true);
-
   return (
     <div className={styles.container}>
       <RecipeNavigation />
       <div className={styles.cardContainer}>
-        {recipeList.map((recipe) => (
-          <RecipeCard key={recipe.id} recipe={recipe} />
-        ))}
+        <RecipeList recipeList={loadedRecipes} />
       </div>
     </div>
   );

@@ -1,20 +1,34 @@
 .container {
-    border: rgb(206, 228, 61) solid 5px;
-    width: 500px;
+    border: rgb(89, 18, 189) solid 10px;
+    width: 450px;
     height: 400px;
+    margin: 0 10px 20px;
+    padding: 5px;
+    background-color: rgb(120, 212, 191);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(43, 103, 167, 0.2);
 }
 
 #title {
     text-align: center;
     font-size: 400px;
+    margin: 10px 10px 30px 10px;
+    color: rgb(219, 111, 22);
 }
 
 .row {
-display: flex;
-flex-wrap: wrap;
+clear: both;
 }
 
-.col {
-    width: 33.33%;
-    text-align: center;
+.col1 {
+    float: left;
+}
+
+.col2 {
+    float: right;
+}
+
+.rowImage {
+    clear: both;
+    padding: 15px;
 }

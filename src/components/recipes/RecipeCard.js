@@ -2,43 +2,23 @@ import styles from "./RecipeCard.module.css";
 import mango from "../../images/back.JPG";
 
 function RecipeCard(props) {
-  console.log(props.recipe);
   return (
     <div className={styles.container}>
       <div id={styles.title}>
-        <h3>{props.recipe.name}</h3>
+        <h3>{props.name}</h3>
       </div>
       <div className={styles.row}>
-        <div className={`${styles.col} ${styles.col1}`}>
-          Cuisine: {props.recipe.cuisine} <br />
-          Prep time: {props.recipe.prepTime}
+        <div className={styles.col1}>
+          Cuisine: {props.cuisine} <br />
+          Total Time: {props.time} <br />
+          Calories: {props.calories}
         </div>
-        <div className={`${styles.col} ${styles.col2}`}>
-          <img src={mango} alt="mango" height={100} />
+        <div className={styles.col2}>
+          <img src={props.image} alt="food" height={150} />
         </div>
+      </div>
 
-        <div className={`${styles.col} ${styles.col3}`}>
-          Serves: {props.recipe.serves}
-          <br />
-          Cook time: {props.recipe.cookTime}
-        </div>
-      </div>
-      <div className={styles.row}>
-        Nutrintional Info:
-        <br />
-        Calories: {props.recipe.nutrition.calories}
-      </div>
-      <div className={styles.row}>
-        <div className={styles.col}>
-          Protein: {props.recipe.nutrition.protein}
-        </div>
-        <div className={styles.col}>
-          Carbohydrates: {props.recipe.nutrition.carbohydrates}
-        </div>
-        <div className={styles.col}>Fat: {props.recipe.nutrition.fat}</div>
-      </div>
-      <div className={styles.row}></div>
-      Ingredeints: 
+      <div className={styles.rowImage}>Instructions: {props.instructions}</div>
     </div>
   );
 }

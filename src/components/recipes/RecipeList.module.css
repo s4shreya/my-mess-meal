@@ -1,0 +1,6 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(234, 69, 86);
+  margin: 0;
+}

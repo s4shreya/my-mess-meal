@@ -1,14 +1,11 @@
-/* .container { */
-    /* position: absolute; 
-     right: 0; 
-     margin: 10px; */
-/* } */
+.container {
+    background-color: rgb(234, 69, 86);
+}
 
 .image {
     float: left;
     position: absolute;
     left: 200px;
-    /* margin: auto; */
 }
 
 .firstRow {
