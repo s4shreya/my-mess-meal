@@ -1,17 +1,25 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const MenuContext = createContext({
   menuItems: [],
   currentCount: 0,
+  mealName: "",
+  timings: "",
+  menu: "",
+  calories: 0,
   incrementCount: () => {},
 });
 
 export function MenuContextProvider(props) {
   const [counter, setCounter] = useState(0);
 
-  const incrementCounter = () => {
-    setCounter((prevCounter) => prevCounter + 1);
-  };
+  useEffect(() => {
+    console.log("in use effect");
+  });
+
+  const incrementCounter = () => setCounter((prevCounter) => prevCounter++);
+
+  console.log("increment is" + counter);
 
   const menuItemsList = [[], [], []];
   menuItemsList[0] = [
@@ -44,11 +52,34 @@ export function MenuContextProvider(props) {
     { name: "Aloo tamatar, chapati, rice", calories: 211 },
   ];
 
-console.log(menuItemsList);
+  const meal = counter % 3;
+  const day = counter / 3;
+  let mealName, timings, menu, calories;
+
+  if (meal === 0) {
+    mealName = "Breakfast";
+    timings = "8:00 AM to 9:00 AM";
+    menu = menuItemsList[meal][day].name;
+    calories = menuItemsList[meal][day].calories;
+  } else if (meal === 1) {
+    mealName = "Lunch";
+    timings = "1:00 PM to 2:00 PM";
+    menu = menuItemsList[meal][day].name;
+    calories = menuItemsList[meal][day].calories;
+  } else {
+    mealName = "Dinner";
+    timings = "8:00 PM to 9:00 PM";
+    menu = menuItemsList[meal][day].name;
+    calories = menuItemsList[meal][day].calories;
+  }
 
   const context = {
     menuItems: menuItemsList,
     currentCount: counter,
+    mealName: mealName,
+    timings: timings,
+    menu: menu,
+    calories: calories,
     incrementCount: incrementCounter,
   };
 

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useContext, useRef } from "react";
 
 import styles from "./MealEntryForm.module.css";
 import Button from "react-bootstrap/Button";
@@ -7,8 +8,45 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import BootstrapSwitchButton from "bootstrap-switch-button-react";
+import MenuContext from "../../store/menu-context";
 
-function MyVerticallyCenteredModal(props) {
+function MealEntryFormModal(props) {
+  const menuCtxt = useContext(MenuContext);
+
+  const firstNameInputRef = useRef();
+  const lastNameInputRef = useRef();
+  const yearInputRef = useRef();
+  const hostelNumberInputRef = useRef();
+  const responseInputRef = useRef();
+  const reasonInputRef = useRef();
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    const firstNameEntered = firstNameInputRef.current.value;
+    const lastNameEntered = lastNameInputRef.current.value;
+    const yearEntered = yearInputRef.current.value;
+    const hostelNumberEntered = hostelNumberInputRef.current.value;
+    const responseEntered = responseInputRef.current.value;
+    const reasonEntered = reasonInputRef.current.value;
+
+    const studentResponse = {
+      firstName: firstNameEntered,
+      lastName: lastNameEntered,
+      year: yearEntered,
+      hostelNumber: hostelNumberEntered,
+      response: responseEntered,
+      reason: reasonEntered,
+    };
+
+    menuCtxt.incrementCount();
+    props.onHide();
+
+    // console.log(studentResponse);
+    console.log(menuCtxt.currentCount);
+
+  };
+
   return (
     <Modal
       {...props}
@@ -21,27 +59,38 @@ function MyVerticallyCenteredModal(props) {
           Enter your Meal details
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <h4 className={styles.subheading}>Meal: Breakfast</h4>
-        <h5 className={styles.subheading}>Timings: 8:00 AM to 9:00 AM</h5>
-        <h6 className={styles.subheading}>Menu: "Idli Sambhar"</h6>
-        <p className={styles.content}>
-          Please mark your availability for this meal here. Food is precious and
-          saving it can feed many people on earth.
-          <strong> Note:</strong> This entry is only for the upcoming meal. To
-          fill further entries, please visit{" "}
-          <Link to="/meal-calendar">Meal Calendar</Link>.
-        </p>
-        <Form>
+      <Form onSubmit={submitHandler}>
+        <Modal.Body>
+          <h4 className={styles.subheading}>Meal: {menuCtxt.mealName}</h4>
+          <h5 className={styles.subheading}>Timings: {menuCtxt.timings}</h5>
+          <h6 className={styles.subheading}>Menu: {menuCtxt.menu}</h6>
+          <p className={styles.content}>
+            Please mark your availability for this meal here. Food is precious
+            and saving it can feed many people on earth.
+            <strong> Note:</strong> This entry is only for the upcoming meal. To
+            fill further entries, please visit{" "}
+            <Link to="/meal-calendar">Meal Calendar</Link>.
+          </p>
+
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Row>
               <Col>
                 <Form.Label>First Name</Form.Label>
-                <Form.Control type="text" placeholder="First name" autoFocus />
+                <Form.Control
+                  type="text"
+                  placeholder="First name"
+                  ref={firstNameInputRef}
+                  autoFocus
+                  required
+                />
               </Col>
               <Col>
                 <Form.Label>Last Name</Form.Label>
-                <Form.Control type="text" placeholder="Last name" />
+                <Form.Control
+                  type="text"
+                  placeholder="Last name"
+                  ref={lastNameInputRef}
+                />
               </Col>
             </Row>
           </Form.Group>
@@ -50,6 +99,7 @@ function MyVerticallyCenteredModal(props) {
               <Form.Select
                 defaultValue="Current Year"
                 aria-label="Default select example"
+                ref={yearInputRef}
               >
                 <option>Current Year</option>
                 <option value="1">First Year</option>
@@ -59,7 +109,10 @@ function MyVerticallyCenteredModal(props) {
               </Form.Select>
             </Col>
             <Col>
-              <Form.Select aria-label="Default select example">
+              <Form.Select
+                aria-label="Default select example"
+                ref={hostelNumberInputRef}
+              >
                 <option>Hostel Number</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -69,36 +122,39 @@ function MyVerticallyCenteredModal(props) {
             </Col>
           </Row>
           <div className={styles.toggleStatement}>
-          <Form.Label>Will you eat this meal?</Form.Label>
-         <div className={styles.toggleButton}>
-          <BootstrapSwitchButton
-            checked={true}
-            width="100"
-            onlabel="Yes"
-            offlabel="No"
-            onstyle="success"
-            offstyle="danger"
-            
-            // fill this on functionality ---------------------------------------------
-            // onChange={(checked: boolean) => {
-            //     this.setState({ isUserAdmin: checked })
-            // }}
-          />
+            <Form.Label>Will you eat this meal?</Form.Label>
+            <div className={styles.toggleButton}>
+              <BootstrapSwitchButton
+                checked={true}
+                width="100"
+                onlabel="Yes"
+                offlabel="No"
+                onstyle="success"
+                offstyle="danger"
+                ref={responseInputRef}
+
+                // fill this on functionality ---------------------------------------------
+                // onChange={(checked: boolean) => {
+                //     this.setState({ isUserAdmin: checked })
+                // }}
+              />
+            </div>
           </div>
-          </div>
-          <Form.Select aria-label="Default select example">
+          <Form.Select aria-label="Default select example" ref={reasonInputRef}>
             <option>If NO, specify the reason</option>
             <option value="1">On Leave</option>
             <option value="2">Outing</option>
             <option value="3">Sick</option>
             <option value="4">I do not want to disclose.</option>
           </Form.Select>
-        </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button className={styles.button} onClick={props.onHide}>Reset</Button>
-        <Button className={styles.button} onClick={props.onHide}>Submit</Button>
-      </Modal.Footer>
+        </Modal.Body>
+        <Modal.Footer>
+          {/* <Button className={styles.button} onClick={props.onHide}>Reset</Button> */}
+          <Button className={styles.button} type="submit">
+            Submit
+          </Button>
+        </Modal.Footer>
+      </Form>
     </Modal>
   );
 }
@@ -106,7 +162,7 @@ function MyVerticallyCenteredModal(props) {
 function MealEntryForm(props) {
   return (
     <div className={styles.container}>
-      <MyVerticallyCenteredModal
+      <MealEntryFormModal
         show={props.isModalOpen}
         onHide={props.closeHandler}
       />
