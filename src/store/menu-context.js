@@ -7,15 +7,18 @@ const MenuContext = createContext({
   timings: "",
   menu: "",
   calories: 0,
+  meal: 0,
+  day: 0,
   totalCalories: 0,
   incrementCount: () => {},
-  addCalories: cal => {}
+  findMeal: (count) => {},
+  addCalories: (cal) => {},
 });
 
 export function MenuContextProvider(props) {
   const [counter, setCounter] = useState(0);
 
-  const incrementCounter = () => setCounter(counter+1);
+  const incrementCounter = () => setCounter(counter + 1);
 
   const menuItemsList = [[], [], []];
   menuItemsList[0] = [
@@ -48,35 +51,42 @@ export function MenuContextProvider(props) {
     { name: "Aloo tamatar, chapati, rice", calories: 211 },
   ];
 
-  let meal = counter % 3;
-  let day = Math.trunc(counter / 3);
-  let mealName, timings, menu, calories;
+  const findMeal = (count) => {
+    let meal = count % 3;
+    let day = Math.trunc(count / 3);
+    let mealName, timings, menu, calories;
 
-  if (meal === 0) {
-    mealName = "Breakfast";
-    timings = "8:00 AM to 9:00 AM";
-    menu = menuItemsList[meal][day].name;
-    calories = menuItemsList[meal][day].calories;
-  } else if (meal === 1) {
-    mealName = "Lunch";
-    timings = "1:00 PM to 2:00 PM";
-    menu = menuItemsList[meal][day].name;
-    calories = menuItemsList[meal][day].calories;
-  } else {
-    mealName = "Dinner";
-    timings = "8:00 PM to 9:00 PM";
-    menu = menuItemsList[meal][day].name;
-    calories = menuItemsList[meal][day].calories;
-  }
+    if (meal === 0) {
+      mealName = "Breakfast";
+      timings = "8:00 AM to 9:00 AM";
+      menu = menuItemsList[meal][day].name;
+      calories = menuItemsList[meal][day].calories;
+    } else if (meal === 1) {
+      mealName = "Lunch";
+      timings = "1:00 PM to 2:00 PM";
+      menu = menuItemsList[meal][day].name;
+      calories = menuItemsList[meal][day].calories;
+    } else {
+      mealName = "Dinner";
+      timings = "8:00 PM to 9:00 PM";
+      menu = menuItemsList[meal][day].name;
+      calories = menuItemsList[meal][day].calories;
+    }
+
+    return [mealName, timings, menu, calories, meal, day];
+  };
 
   const context = {
     menuItems: menuItemsList,
     currentCount: counter,
-    mealName: mealName,
-    timings: timings,
-    menu: menu,
-    calories: calories,
+    mealName: findMeal(counter)[0],
+    timings: findMeal(counter)[1],
+    menu: findMeal(counter)[2],
+    calories: findMeal(counter)[3],
+    meal: findMeal(counter)[4],
+    day: findMeal(counter)[5],
     incrementCount: incrementCounter,
+    findMeal: findMeal,
   };
 
   return (

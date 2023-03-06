@@ -6,12 +6,7 @@ import MealFeedbackModal from "./MealFeedbackModal";
 function MealEntryMealFeedback() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-    function showFeedbackModal() {
-        console.log("in show");
-        setIsModalOpen(true);
-    }
-
-//   const showFeedbackModal = () => setIsModalOpen(true);
+  const showFeedbackModal = () => setIsModalOpen(true);
 
   const closeFeedbackModal = () => setIsModalOpen(false);
 
