@@ -10,15 +10,35 @@ const MenuContext = createContext({
   meal: 0,
   day: 0,
   totalCalories: 0,
+  message: "",
+  mealEaten: [],
   incrementCount: () => {},
   findMeal: (count) => {},
   addCalories: (cal) => {},
+  updateTotalCalories: (day) => {},
+  setMessage: msg => {},
+  checkMealStatus: cal => {}
 });
 
 export function MenuContextProvider(props) {
   const [counter, setCounter] = useState(0);
+  const [caloriesSum, setCaloriesSum] = useState(0);
+  const [ msg, setMsg ] = useState("");
+  const [ isMealEaten, setIsMealEaten ] = useState([true, true, true]);
 
   const incrementCounter = () => setCounter(counter + 1);
+
+  const addCalories = (cal) => {
+    setCaloriesSum(caloriesSum + cal);
+  };
+
+  const updateTotalCalories = cal => {
+    setCaloriesSum(cal);
+  };
+
+  const setMessage = message => setMsg(message);
+
+  const mealStatus = cal => {cal === 0 ? setIsMealEaten(false) : setIsMealEaten(true)};
 
   const menuItemsList = [[], [], []];
   menuItemsList[0] = [
@@ -85,8 +105,15 @@ export function MenuContextProvider(props) {
     calories: findMeal(counter)[3],
     meal: findMeal(counter)[4],
     day: findMeal(counter)[5],
+    totalCalories: caloriesSum,
+    message: msg,
+    mealEaten: isMealEaten,
     incrementCount: incrementCounter,
     findMeal: findMeal,
+    addCalories: addCalories,
+    updateTotalCalories: updateTotalCalories,
+    setMessage: setMessage,
+    checkMealStatus: mealStatus
   };
 
   return (

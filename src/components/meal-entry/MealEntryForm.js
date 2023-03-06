@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 
 import styles from "./MealEntryForm.module.css";
 import Button from "react-bootstrap/Button";
@@ -12,12 +12,12 @@ import MenuContext from "../../store/menu-context";
 
 function MealEntryFormModal(props) {
   const menuCtxt = useContext(MenuContext);
+  const [ userResponse, setUserResponse ] = useState(true);
 
   const firstNameInputRef = useRef();
   const lastNameInputRef = useRef();
   const yearInputRef = useRef();
   const hostelNumberInputRef = useRef();
-  const responseInputRef = useRef();
   const reasonInputRef = useRef();
 
   const submitHandler = (event) => {
@@ -27,7 +27,6 @@ function MealEntryFormModal(props) {
     const lastNameEntered = lastNameInputRef.current.value;
     const yearEntered = yearInputRef.current.value;
     const hostelNumberEntered = hostelNumberInputRef.current.value;
-    const responseEntered = responseInputRef.current.value;
     const reasonEntered = reasonInputRef.current.value;
 
     const studentResponse = {
@@ -35,15 +34,32 @@ function MealEntryFormModal(props) {
       lastName: lastNameEntered,
       year: yearEntered,
       hostelNumber: hostelNumberEntered,
-      response: responseEntered,
+      response: userResponse,
       reason: reasonEntered,
     };
 
     menuCtxt.incrementCount();
+    let cal, msg;
+    if(studentResponse.response === true) {
+      cal = menuCtxt.menuItems[menuCtxt.meal][menuCtxt.day].calories;
+      msg = "";
+    }
+    else {
+      cal = 0;
+      msg = "You haven't eaten this meal as entered by you."
+    }
+
+    menuCtxt.addCalories(cal);
+    menuCtxt.setMessage(msg);
+    menuCtxt.checkMealStatus(cal);
+    console.log(`in meal form meal eaten is ${menuCtxt.mealEaten}`);
+    if(menuCtxt.meal === 0 && menuCtxt.day !== 0) {
+      menuCtxt.updateTotalCalories(cal);
+    }
     props.onHide();
 
-    // console.log(studentResponse);
-    console.log(menuCtxt.currentCount);
+    console.log(studentResponse);
+    console.log(userResponse);
 
   };
 
@@ -131,12 +147,9 @@ function MealEntryFormModal(props) {
                 offlabel="No"
                 onstyle="success"
                 offstyle="danger"
-                ref={responseInputRef}
-
-                // fill this on functionality ---------------------------------------------
-                // onChange={(checked: boolean) => {
-                //     this.setState({ isUserAdmin: checked })
-                // }}
+                onChange={(checked) => {
+                    setUserResponse(checked);
+                }}
               />
             </div>
           </div>
@@ -149,7 +162,6 @@ function MealEntryFormModal(props) {
           </Form.Select>
         </Modal.Body>
         <Modal.Footer>
-          {/* <Button className={styles.button} onClick={props.onHide}>Reset</Button> */}
           <Button className={styles.button} type="submit">
             Submit
           </Button>
