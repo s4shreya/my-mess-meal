@@ -1,16 +1,11 @@
-
-
-
-// original function------------------
+import AboutData from "../components/about/AboutData";
 
 function About() {
-    return (
-        <div>
-            ABOUT
-            TESTING PURPOSE ONLY
-
-        </div>
-    );
+  return (
+    <div>
+      <AboutData />
+    </div>
+  );
 }
 
 export default About;
