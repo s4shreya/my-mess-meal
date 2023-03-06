@@ -81,8 +81,12 @@ function ContactUsForm() {
             />
           </div>
           <div className={styles.sendButton}>
-            <button className={`btn btn-danger`} type="submit">
-              Send
+            <button
+              className={`${styles.customBtn} ${styles.animatedBtn}`}
+              type="submit"
+            >
+              <span>Happy to connect!</span>
+              <span>Send</span>
             </button>
           </div>
           <ToastContainer />
