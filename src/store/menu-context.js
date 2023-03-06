@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 const MenuContext = createContext({
   menuItems: [],
@@ -7,19 +7,15 @@ const MenuContext = createContext({
   timings: "",
   menu: "",
   calories: 0,
+  totalCalories: 0,
   incrementCount: () => {},
+  addCalories: cal => {}
 });
 
 export function MenuContextProvider(props) {
   const [counter, setCounter] = useState(0);
 
-  useEffect(() => {
-    console.log("in use effect");
-  });
-
-  const incrementCounter = () => setCounter((prevCounter) => prevCounter++);
-
-  console.log("increment is" + counter);
+  const incrementCounter = () => setCounter(counter+1);
 
   const menuItemsList = [[], [], []];
   menuItemsList[0] = [
@@ -52,8 +48,8 @@ export function MenuContextProvider(props) {
     { name: "Aloo tamatar, chapati, rice", calories: 211 },
   ];
 
-  const meal = counter % 3;
-  const day = counter / 3;
+  let meal = counter % 3;
+  let day = Math.trunc(counter / 3);
   let mealName, timings, menu, calories;
 
   if (meal === 0) {
