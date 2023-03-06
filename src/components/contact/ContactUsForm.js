@@ -25,18 +25,21 @@ function ContactUsForm() {
     emailInputRef.current.value = "";
     messageInputRef.current.value = "";
 
-    toast.success(`Form Submitted Successfully by ${userResponse.name}!`, {
+    toast.success(`Form submitted successfully by ${userResponse.name}!`, {
       position: toast.POSITION.TOP_CENTER,
       color: "success",
     });
   };
   return (
     <div>
-      <div className="container mt-5">
-        <h2 className="mb-3">My Mess Meal Contact Form</h2>
+      <div className={`container mt-5 ${styles.formContainer}`}>
+        <h2 className={`mb-3 ${styles.heading}`}>My Mess Meal Contact Form</h2>
         <form onSubmit={submitHandler}>
           <div className="mb-3">
-            <label className="form-label" htmlFor="name">
+            <label
+              className={`form-label ${styles.fieldHeading}`}
+              htmlFor="name"
+            >
               Name
             </label>
             <input
@@ -48,7 +51,10 @@ function ContactUsForm() {
             />
           </div>
           <div className="mb-3">
-            <label className="form-label" htmlFor="email">
+            <label
+              className={`form-label ${styles.fieldHeading}`}
+              htmlFor="email"
+            >
               Email
             </label>
             <input
@@ -60,19 +66,25 @@ function ContactUsForm() {
             />
           </div>
           <div className="mb-3">
-            <label className="form-label" htmlFor="message">
+            <label
+              className={`form-label ${styles.fieldHeading}`}
+              htmlFor="message"
+            >
               Message
             </label>
             <textarea
               className="form-control"
               id="message"
+              rows={4}
               required
               ref={messageInputRef}
             />
           </div>
-          <button className="btn btn-danger" type="submit">
-            Send
-          </button>
+          <div className={styles.sendButton}>
+            <button className={`btn btn-danger`} type="submit">
+              Send
+            </button>
+          </div>
           <ToastContainer />
         </form>
       </div>
