@@ -6,7 +6,7 @@ import Header from './header/Header';
 import MealCalendar from './pages/MealCalendar';
 import About from './pages/About';
 import Recipes from './pages/Recipes';
-import Feedback from './pages/Feedback';
+import ContactUs from './pages/ContactUs';
 import Home from './components/home/Home';
 import Menu from './pages/Menu';
 import styles from './App.module.css';
@@ -26,7 +26,7 @@ function App() {
         <Route path='recipes/recipe-items' element={<RecipeItems />} />
         <Route path='recipes/favorite' element={<Favorite />} />
         <Route path='recipes/add-recipes' element={<AddRecipes />} />
-        <Route path='/feedback' element={<Feedback />} />
+        <Route path='/contact' element={<ContactUs />} />
         <Route path='/menu' element={<Menu />} />
       </Routes>
     </div>

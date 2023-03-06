@@ -19,7 +19,7 @@ function MainNavigation() {
         <Link to="/meal-calendar" className={styles.link}>Meal Calendar</Link>
       </li>
       <li className={styles.listItems}>
-        <Link to="/feedback" className={styles.link}>Feedback</Link>
+        <Link to="/contact" className={styles.link}>Contact Us</Link>
       </li>
     </ul>
     </nav>

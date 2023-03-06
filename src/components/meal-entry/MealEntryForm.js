@@ -162,6 +162,9 @@ function MealEntryFormModal(props) {
           </Form.Select>
         </Modal.Body>
         <Modal.Footer>
+        <Button className={styles.button} type="reset">
+          Reset
+          </Button>
           <Button className={styles.button} type="submit">
             Submit
           </Button>
