@@ -1,16 +1,28 @@
 .logo {
-  font-size:40px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 40px;
+  font-family: Georgia, "Times New Roman", Times, serif;
   color: white;
-  letter-spacing:3px;
-  text-shadow:2px 2px 5px;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 5px;
   float: left;
   line-height: 100px;
+}
+
+.logo img {
+  position: relative;
+  bottom: 10px;
+  margin-left: 20px;
 }
 
 .name {
   margin-left: 10px;
   text-decoration: none;
+  color: rgb(9, 70, 9);
+  font-size: 50px;
+}
+
+.name:hover {
+  color: rgb(226, 65, 70);
 }
 
 .image {

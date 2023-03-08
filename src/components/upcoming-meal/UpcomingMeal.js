@@ -16,14 +16,11 @@ function UpcomingMeal(props) {
 
   return (
     <div>
-      <h1 className={styles.card_title} onClick={showUpcomingMeal}>
-        Upcoming Meal
-      </h1>
+      <div className={styles.card} onClick={showUpcomingMeal}>
+        <h1 className={styles.card_title}>Upcoming Meal</h1>
+      </div>
       {isModalOpen && (
-        <UpcomingMealModal
-          show={isModalOpen}
-          handleClose={closeUpcomingMeal}
-        />
+        <UpcomingMealModal show={isModalOpen} handleClose={closeUpcomingMeal} />
       )}
     </div>
   );

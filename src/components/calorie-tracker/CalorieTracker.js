@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Card from "../../user-interface/Card";
 
 import styles from "../../user-interface/Card.module.css";
 import CalorieTrackerModal from "./CalorieTrackerModal";
@@ -12,9 +13,11 @@ function CalorieTracker() {
 
   return (
     <div>
-      <h1 className={styles.card_title} onClick={showCalorieTrackerModal}>
-        Calorie Tracker
-      </h1>
+      <div onClick={showCalorieTrackerModal}>
+        <Card>
+          <h1 className={styles.card_title}>Calorie Tracker</h1>
+        </Card>
+      </div>
       {isModalOpen && (
         <CalorieTrackerModal
           show={isModalOpen}

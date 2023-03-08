@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import "../../../node_modules/react-toastify/dist/ReactToastify.css";
+import Card from "../../user-interface/Card";
 import styles from "../../user-interface/Card.module.css";
 import MealFeedbackModal from "./MealFeedbackModal";
 
@@ -22,9 +23,11 @@ function MealEntryMealFeedback() {
 
   return (
     <div>
-      <h1 className={styles.card_title} onClick={showFeedbackModal}>
-        Meal Feedback
-      </h1>
+      <div onClick={showFeedbackModal}>
+        <Card>
+          <h1 className={styles.card_title}>Meal Feedback</h1>
+        </Card>
+      </div>
       {isModalOpen && (
         <MealFeedbackModal
           show={isModalOpen}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import "../../../node_modules/react-toastify/dist/ReactToastify.css";
+import Card from "../../user-interface/Card";
 import styles from "../../user-interface/Card.module.css";
 import MealEntryForm from "./MealEntryForm";
 
@@ -26,9 +27,14 @@ function MealEntry() {
 
   return (
     <div>
-      <h1 className={styles.card_title} onClick={showMealEntryForm}>
+      <div  onClick={showMealEntryForm}>
+        <Card>
+      <h1 className={styles.card_title}>
         Meal Entry
       </h1>
+
+        </Card>
+      </div>
       {isModalOpen && (
         <MealEntryForm
           isModalOpen={isModalOpen}

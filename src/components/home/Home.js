@@ -2,31 +2,26 @@ import CalorieTracker from "../calorie-tracker/CalorieTracker";
 import MealEntry from "../meal-entry/MealEntry";
 import MealFeedback from "../feedback/MealFeedback";
 import UpcomingMeal from "../upcoming-meal/UpcomingMeal";
-import Card from "../../user-interface/Card";
 import styles from "./Home.module.css";
-import homepageImage from "../../images/homepage.png";
+import homepageImage from "../../images/back.JPG";
 
 function Home() {
   return (
     <div className={styles.container}>
+      <p className={`${styles.sideContent} ${styles.firstWord}`}>S A V E</p>
+      <p className={`${styles.sideContent} ${styles.secondWord}`}>F O O D</p>
       <div className={styles.image}>
         <img src={homepageImage} alt="save food" width={500} height={500} />
       </div>
+      <p className={`${styles.sideContent} ${styles.thirdWord}`}>S A V E</p>
+      <p className={`${styles.sideContent} ${styles.fourthWord}`}> L I F E</p>
       <div className={styles.firstRow}>
-        <Card>
-          <UpcomingMeal />
-        </Card>
-        <Card>
-          <MealEntry />
-        </Card>
+        <UpcomingMeal />
+        <MealEntry />
       </div>
       <div className={styles.secondRow}>
-        <Card>
-          <MealFeedback />
-        </Card>
-        <Card>
-          <CalorieTracker />
-        </Card>
+        <MealFeedback />
+        <CalorieTracker />
       </div>
     </div>
   );

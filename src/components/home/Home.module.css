@@ -1,19 +1,74 @@
 .container {
-    background-color: rgb(234, 69, 86);
+  background-color: rgb(234, 69, 86);
 }
 
 .image {
-    float: left;
-    position: absolute;
-    left: 200px;
+  float: left;
+  position: absolute;
+  left: 200px;
+}
+
+.image img {
+  margin-top: 60px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px gold;
+  transition: transform 2s;
+}
+
+.image img:hover {
+  transform: scale(0, 0) rotate(720deg);
 }
 
 .firstRow {
-    clear: both;
-    float: right;
+  clear: both;
+  float: right;
+  width: 41%;
 }
 
 .secondRow {
-    clear: both;
-    float: right;
+  clear: both;
+  float: right;
+  width: 41%;
+}
+
+.sideContent {
+  background-color: rgb(62, 159, 62);
+  font-size: 45px;
+  text-align: center;
+  width: 40px;
+  border: 2px solid rgb(152, 219, 219);
+  border-radius: 15px;
+  position: absolute;
+  box-shadow: 10px 10px 10px gold;
+  transition: transform 2s;
+}
+
+.sideContent.firstWord {
+  top: 160px;
+  left: 50px;
+}
+.sideContent.secondWord {
+  top: 400px;
+  left: 120px;
+}
+.sideContent.thirdWord {
+  top: 160px;
+  left: 740px;
+}
+.sideContent.fourthWord {
+  top: 400px;
+  left: 810px;
+}
+
+.sideContent:hover {
+  transform: scale(1.2, 1.2);
+  cursor: default;
+}
+
+@media (max-width: 1300px) {
+  .sideContent.thirdWord,
+  .sideContent.fourthWord,
+  .image {
+    display: none;
+  }
 }
