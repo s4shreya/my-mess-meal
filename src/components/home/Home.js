@@ -11,7 +11,7 @@ function Home() {
       <p className={`${styles.sideContent} ${styles.firstWord}`}>S A V E</p>
       <p className={`${styles.sideContent} ${styles.secondWord}`}>F O O D</p>
       <div className={styles.image}>
-        <img src={homepageImage} alt="save food" width={500} height={500} />
+        <img src={homepageImage} alt="save food" width={400} height={400} />
       </div>
       <p className={`${styles.sideContent} ${styles.thirdWord}`}>S A V E</p>
       <p className={`${styles.sideContent} ${styles.fourthWord}`}> L I F E</p>

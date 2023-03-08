@@ -9,7 +9,7 @@
 }
 
 .image img {
-  margin-top: 60px;
+  margin-top: 100px;
   border-radius: 20px;
   box-shadow: 10px 10px 10px gold;
   transition: transform 2s;
@@ -22,18 +22,18 @@
 .firstRow {
   clear: both;
   float: right;
-  width: 41%;
+  width: 45%;
 }
 
 .secondRow {
   clear: both;
   float: right;
-  width: 41%;
+  width: 45%;
 }
 
 .sideContent {
   background-color: rgb(62, 159, 62);
-  font-size: 45px;
+  font-size: 40px;
   text-align: center;
   width: 40px;
   border: 2px solid rgb(152, 219, 219);
@@ -53,11 +53,11 @@
 }
 .sideContent.thirdWord {
   top: 160px;
-  left: 740px;
+  left: 640px;
 }
 .sideContent.fourthWord {
   top: 400px;
-  left: 810px;
+  left: 710px;
 }
 
 .sideContent:hover {
@@ -65,7 +65,19 @@
   cursor: default;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1400px) {
+  .sideContent.fourthWord,
+  .sideContent.thirdWord {
+    display: none;
+  }
+
+  .firstRow,
+  .secondRow {
+    display: flex;
+  }
+}
+
+@media (max-width: 1100px) {
   .sideContent.thirdWord,
   .sideContent.fourthWord,
   .image {
