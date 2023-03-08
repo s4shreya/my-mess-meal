@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
+import "../../../node_modules/react-toastify/dist/ReactToastify.css";
 import styles from "../../user-interface/Card.module.css";
 import MealFeedbackModal from "./MealFeedbackModal";
 
@@ -10,6 +12,14 @@ function MealEntryMealFeedback() {
 
   const closeFeedbackModal = () => setIsModalOpen(false);
 
+  const showFeedbackMessage = () => {
+    toast.success(`Feedback form submitted successfully!`, {
+      position: toast.POSITION.TOP_CENTER,
+      color: "success",
+    });
+    closeFeedbackModal();
+  };
+
   return (
     <div>
       <h1 className={styles.card_title} onClick={showFeedbackModal}>
@@ -19,8 +29,10 @@ function MealEntryMealFeedback() {
         <MealFeedbackModal
           show={isModalOpen}
           handleClose={closeFeedbackModal}
+          showFeedbackMessage={showFeedbackMessage}
         />
       )}
+      <ToastContainer />
     </div>
   );
 }
