@@ -18,6 +18,7 @@ const MenuContext = createContext({
   updateTotalCalories: (day) => {},
   setMessage: (msg, mealIndex) => {},
   checkMealStatus: (cal, mealIndex) => {},
+  changeCounter: (days) => {},
 });
 
 export function MenuContextProvider(props) {
@@ -62,6 +63,8 @@ export function MenuContextProvider(props) {
       })
     );
   };
+
+  const updateCounter = (days) => setCounter(counter + days);
 
   const menuItemsList = [[], [], []];
   menuItemsList[0] = [
@@ -137,6 +140,7 @@ export function MenuContextProvider(props) {
     updateTotalCalories: updateTotalCalories,
     setMessage: setMessage,
     checkMealStatus: mealStatus,
+    changeCounter: updateCounter,
   };
 
   return (

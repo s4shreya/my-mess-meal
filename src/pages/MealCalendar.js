@@ -1,7 +1,9 @@
+import MealCalendarForm from "../components/meal-calendar/MealCalendarForm";
+
 function MealCalendar() {
     return (
         <div>
-            MealCalendar
+            <MealCalendarForm />
         </div>
     );
 }

@@ -1,0 +1,38 @@
+.container {
+  background-color: aquamarine;
+  width: 50%;
+  margin: 50px auto;
+  border: 10px solid rgb(163, 20, 163);
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 20px 20px 20px beige;
+  text-align: center;
+}
+
+.heading {
+  color: rgb(164, 30, 117);
+  font-size: 50px;
+  text-shadow: 2px 2px 10px rgb(160, 95, 156);
+  padding: 10px;
+}
+
+.dateForm label,
+.dateForm input {
+  width: 40%;
+  margin: 30px;
+  font-weight: 600;
+}
+
+.dateForm button {
+  background-color: rgb(203, 196, 235);
+  width: 150px;
+  border: 2px solid rgb(163, 20, 163);
+  border-radius: 10px;
+  height: 40px;
+  color: rgb(164, 30, 117);
+  font-size: 20px;
+}
+
+.dateForm button:hover {
+  background-color: rgb(41, 187, 126);
+}
