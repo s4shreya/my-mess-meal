@@ -65,33 +65,33 @@ export function MenuContextProvider(props) {
 
   const menuItemsList = [[], [], []];
   menuItemsList[0] = [
-    { name: "Idli Sambhar", calories: 138 },
-    { name: "Pav Bhaji", calories: 120 },
-    { name: "Paneer Paratha", calories: 200 },
-    { name: "Uttapam Sambhar", calories: 195 },
-    { name: "Vegetable Sandwich", calories: 100 },
-    { name: "Poha", calories: 155 },
-    { name: "Upma", calories: 127 },
+    { name: "Idli Sambhar", calories: 238 },
+    { name: "Pav Bhaji", calories: 320 },
+    { name: "Paneer Paratha", calories: 400 },
+    { name: "Uttapam Sambhar", calories: 395 },
+    { name: "Vegetable Sandwich", calories: 460 },
+    { name: "Poha", calories: 255 },
+    { name: "Upma", calories: 327 },
   ];
 
   menuItemsList[1] = [
-    { name: "Paneer Bhurji, chapati, rice", calories: 450 },
-    { name: "Rajma, chapati, rice", calories: 625 },
-    { name: "Bhindi, chapati, rice", calories: 456 },
-    { name: "Aloo gobhi, chapati, rice", calories: 374 },
-    { name: "Lauki, chapati, rice", calories: 350 },
-    { name: "Chole, chapati, rice", calories: 587 },
-    { name: "Palak Paneer, chapati, rice", calories: 471 },
+    { name: "Paneer Bhurji, chapati, rice", calories: 550 },
+    { name: "Rajma, chapati, rice", calories: 825 },
+    { name: "Bhindi, chapati, rice", calories: 656 },
+    { name: "Aloo gobhi, chapati, rice", calories: 574 },
+    { name: "Lauki, chapati, rice", calories: 650 },
+    { name: "Chole, chapati, rice", calories: 787 },
+    { name: "Palak Paneer, chapati, rice", calories: 871 },
   ];
 
   menuItemsList[2] = [
-    { name: "Kadhi, chapati, rice", calories: 397 },
-    { name: "Dal Fry, chapati, rice", calories: 278 },
-    { name: "Malai kofte, chapati, rice", calories: 349 },
-    { name: "Patta gobhi, chapati, rice", calories: 268 },
-    { name: "Dal palak, chapati, rice", calories: 342 },
+    { name: "Kadhi, chapati, rice", calories: 497 },
+    { name: "Dal Fry, chapati, rice", calories: 578 },
+    { name: "Malai kofte, chapati, rice", calories: 449 },
+    { name: "Patta gobhi, chapati, rice", calories: 368 },
+    { name: "Dal palak, chapati, rice", calories: 542 },
     { name: "Kadhai Paneer, chapati, rice", calories: 455 },
-    { name: "Aloo tamatar, chapati, rice", calories: 211 },
+    { name: "Aloo tamatar, chapati, rice", calories: 411 },
   ];
 
   const findMeal = (count) => {

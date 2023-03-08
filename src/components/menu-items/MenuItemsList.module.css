@@ -1,0 +1,45 @@
+.heading {
+  font-size: 30px;
+  color: whitesmoke;
+  text-align: center;
+  padding: 0;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.menuTable {
+  caption-side: top;
+  border: 10px solid rgb(142, 10, 124);
+  border-radius: 10px;
+  margin: auto;
+  width: 90%;
+  background-color: rgb(166, 166, 224);
+  box-shadow: 10px 10px 20px rgb(117, 22, 180);
+  margin-top: 20px;
+}
+
+.tableHeader,
+.tableBody th {
+  text-align: center;
+  font-size: 20px;
+  color: rgb(203, 61, 115);
+  background-color: rgb(151, 228, 188);
+  border: 2px solid rgb(145, 45, 181);
+}
+
+.main {
+  border: 2px solid rgb(145, 45, 181);
+  color: rgb(155, 68, 212);
+}
+
+.tableBody tr,
+.tableBody td {
+  border: 2px solid rgb(145, 45, 181);
+  text-align: center;
+  height: 35px;
+  font-weight: 500;
+}
+
+.tableBody tr:nth-child(even) {
+  background-color: rgb(192, 192, 225);
+}

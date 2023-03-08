@@ -1,8 +1,11 @@
+import MenuItemsList from "../components/menu-items/MenuItemsList";
+
 function Menu() {
-  
-  return <div>
-    menu
-  </div>;
+  return (
+    <div>
+      <MenuItemsList />
+    </div>
+  );
 }
 
 export default Menu;
