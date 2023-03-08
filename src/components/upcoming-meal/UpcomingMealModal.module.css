@@ -1,3 +1,29 @@
 .container {
-    font-size: 20px;
+  background-color: rgb(184, 242, 223);
+  border: 10px solid blueviolet;
+  border-radius: 10px;
+  box-shadow: 20px 20px 10px rgb(206, 244, 149);
+  width: 700px;
+  position: relative;
+  right: 100px;
+}
+
+.header {
+  border-bottom: 2px solid rgb(231, 87, 87);
+}
+
+.heading {
+  color: rgb(255, 0, 60);
+  font-size: 50px;
+}
+
+.content {
+  color: rgb(51, 6, 93);
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.closeButton {
+  width: 100px;
+  background-color: rgb(54, 50, 45);
 }
