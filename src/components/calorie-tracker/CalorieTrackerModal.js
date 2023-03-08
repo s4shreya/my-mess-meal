@@ -23,19 +23,19 @@ function CalorieTrackerModal(props) {
         <h3>Total calories consumed for the day: {menuCtxt.totalCalories}</h3>
         <p>
           Breakfast:{" "}
-          {menuCtxt.mealEaten
+          {menuCtxt.mealEaten[0]
             ? `${menuCtxt.menuItems[0][menuCtxt.day - 1].calories} kcal`
-            : menuCtxt.message}
+            : menuCtxt.message[0]}
           <br />
           Lunch:{" "}
-          {menuCtxt.mealEaten
+          {menuCtxt.mealEaten[1]
             ? `${menuCtxt.menuItems[1][menuCtxt.day - 1].calories} kcal`
-            : menuCtxt.message}{" "}
+            : menuCtxt.message[1]}{" "}
           <br />
           Dinner:{" "}
-          {menuCtxt.mealEaten
+          {menuCtxt.mealEaten[2]
             ? `${menuCtxt.menuItems[2][menuCtxt.day - 1].calories} kcal`
-            : menuCtxt.message}
+            : menuCtxt.message[2]}
         </p>
         <p>
           {remainingCalories > 0
@@ -47,7 +47,6 @@ function CalorieTrackerModal(props) {
         </small>
       </section>
     );
-    // menuCtxt.updateTotalCalories();
   } else {
     const remainingCalories = 1500 - menuCtxt.totalCalories;
     content = (
@@ -55,16 +54,16 @@ function CalorieTrackerModal(props) {
         <h3>Calories consumed today till now: {menuCtxt.totalCalories}</h3>
         <p>
           Breakfast:{" "}
-          {menuCtxt.mealEaten
+          {menuCtxt.mealEaten[0]
             ? `${menuCtxt.menuItems[0][menuCtxt.day].calories} kcal`
-            : menuCtxt.message}
+            : menuCtxt.message[0]}
         </p>
         {menuCtxt.meal === 2 && (
           <p>
             Lunch:{" "}
-            {menuCtxt.mealEaten
+            {menuCtxt.mealEaten[1]
               ? `${menuCtxt.menuItems[1][menuCtxt.day].calories} kcal`
-              : menuCtxt.message}
+              : menuCtxt.message[1]}
           </p>
         )}
         <p>

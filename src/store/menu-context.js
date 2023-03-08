@@ -10,21 +10,21 @@ const MenuContext = createContext({
   meal: 0,
   day: 0,
   totalCalories: 0,
-  message: "",
-  mealEaten: [],
+  message: ["", "", ""],
+  mealEaten: [true, true, true],
   incrementCount: () => {},
   findMeal: (count) => {},
   addCalories: (cal) => {},
   updateTotalCalories: (day) => {},
-  setMessage: msg => {},
-  checkMealStatus: cal => {}
+  setMessage: (msg, mealIndex) => {},
+  checkMealStatus: (cal, mealIndex) => {},
 });
 
 export function MenuContextProvider(props) {
   const [counter, setCounter] = useState(0);
   const [caloriesSum, setCaloriesSum] = useState(0);
-  const [ msg, setMsg ] = useState("");
-  const [ isMealEaten, setIsMealEaten ] = useState([true, true, true]);
+  const [msg, setMsg] = useState(["", "", ""]);
+  const [isMealEaten, setIsMealEaten] = useState([true, true, true]);
 
   const incrementCounter = () => setCounter(counter + 1);
 
@@ -32,13 +32,36 @@ export function MenuContextProvider(props) {
     setCaloriesSum(caloriesSum + cal);
   };
 
-  const updateTotalCalories = cal => {
+  const updateTotalCalories = (cal) => {
     setCaloriesSum(cal);
   };
 
-  const setMessage = message => setMsg(message);
+  const setMessage = (message, mealIndex) =>
+    setMsg(
+      msg.map((value, index) => {
+        if (mealIndex === index) {
+          return message;
+        } else {
+          return value;
+        }
+      })
+    );
 
-  const mealStatus = cal => {cal === 0 ? setIsMealEaten(false) : setIsMealEaten(true)};
+  const mealStatus = (cal, mealIndex) => {
+    setIsMealEaten(
+      isMealEaten.map((value, index) => {
+        if (mealIndex === index) {
+          if (cal === 0) {
+            return false;
+          } else {
+            return true;
+          }
+        } else {
+          return value;
+        }
+      })
+    );
+  };
 
   const menuItemsList = [[], [], []];
   menuItemsList[0] = [
@@ -113,7 +136,7 @@ export function MenuContextProvider(props) {
     addCalories: addCalories,
     updateTotalCalories: updateTotalCalories,
     setMessage: setMessage,
-    checkMealStatus: mealStatus
+    checkMealStatus: mealStatus,
   };
 
   return (

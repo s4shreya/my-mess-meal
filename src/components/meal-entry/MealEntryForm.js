@@ -12,7 +12,7 @@ import MenuContext from "../../store/menu-context";
 
 function MealEntryFormModal(props) {
   const menuCtxt = useContext(MenuContext);
-  const [ userResponse, setUserResponse ] = useState(true);
+  const [userResponse, setUserResponse] = useState(true);
 
   const firstNameInputRef = useRef();
   const lastNameInputRef = useRef();
@@ -40,27 +40,21 @@ function MealEntryFormModal(props) {
 
     menuCtxt.incrementCount();
     let cal, msg;
-    if(studentResponse.response === true) {
+    if (studentResponse.response === true) {
       cal = menuCtxt.menuItems[menuCtxt.meal][menuCtxt.day].calories;
       msg = "";
-    }
-    else {
+    } else {
       cal = 0;
-      msg = "You haven't eaten this meal as entered by you."
+      msg = "You haven't eaten this meal as entered by you.";
     }
 
     menuCtxt.addCalories(cal);
-    menuCtxt.setMessage(msg);
-    menuCtxt.checkMealStatus(cal);
-    console.log(`in meal form meal eaten is ${menuCtxt.mealEaten}`);
-    if(menuCtxt.meal === 0 && menuCtxt.day !== 0) {
+    menuCtxt.setMessage(msg, menuCtxt.meal);
+    menuCtxt.checkMealStatus(cal, menuCtxt.meal);
+    if (menuCtxt.meal === 0 && menuCtxt.day !== 0) {
       menuCtxt.updateTotalCalories(cal);
     }
     props.onHide();
-
-    console.log(studentResponse);
-    console.log(userResponse);
-
   };
 
   return (
@@ -148,7 +142,7 @@ function MealEntryFormModal(props) {
                 onstyle="success"
                 offstyle="danger"
                 onChange={(checked) => {
-                    setUserResponse(checked);
+                  setUserResponse(checked);
                 }}
               />
             </div>
@@ -162,8 +156,8 @@ function MealEntryFormModal(props) {
           </Form.Select>
         </Modal.Body>
         <Modal.Footer>
-        <Button className={styles.button} type="reset">
-          Reset
+          <Button className={styles.button} type="reset">
+            Reset
           </Button>
           <Button className={styles.button} type="submit">
             Submit
