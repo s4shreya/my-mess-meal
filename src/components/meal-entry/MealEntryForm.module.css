@@ -1,20 +1,45 @@
 .subheading {
-    text-align: center;
+  text-align: center;
+  color: rgb(51, 6, 93);
+  font-size: 25px;
+  font-weight: 600;
 }
 
 .content {
-    justify-content: center;
+  justify-content: center;
 }
 
 .toggleStatement {
-    margin: 15px;
+  margin: 15px;
 }
 
 .toggleButton {
-    display: inline-block;
-    margin: 0 20px;
+  display: inline-block;
+  margin: 0 20px;
 }
 
 .button {
-    width: 150px;
+  width: 150px;
+  float: left;
+}
+
+.formContainer {
+  background-color: rgb(184, 242, 223);
+  border: 10px solid blueviolet;
+  border-radius: 10px;
+  box-shadow: 20px 20px 10px rgb(206, 244, 149);
+}
+
+.header {
+  border-bottom: 2px solid rgb(231, 87, 87);
+}
+
+.heading {
+  color: rgb(255, 0, 60);
+  font-size: 40px;
+}
+
+.formFooter {
+  width: 340px;
+  margin: auto;
 }
