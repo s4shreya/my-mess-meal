@@ -36,3 +36,15 @@
 .dateForm button:hover {
   background-color: rgb(41, 187, 126);
 }
+
+@media (max-width: 1440px) {
+  .dateForm label,
+  .dateForm input {
+    width: 30%;
+    margin: 20px;
+  }
+  .dateForm button {
+    display: block;
+    margin: auto;
+  }
+}
