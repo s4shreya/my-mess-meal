@@ -18,7 +18,7 @@ function MealCalendarForm() {
     const endDate = new Date(endDateEntered);
     const totalDays = endDate.getDate() - startDate.getDate() + 1;
 
-    if (totalDays < 6) menuCtxt.changeCounter(totalDays * 3);
+    if (totalDays > 0 && totalDays < 6) menuCtxt.changeCounter(totalDays * 3);
 
     toast.success(
       `You have marked absent from ${startDateEntered} to ${endDateEntered}!`,
