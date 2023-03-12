@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContext, useRef, useState } from "react";
+import axios from "axios";
 
 import styles from "./MealEntryForm.module.css";
 import Button from "react-bootstrap/Button";
@@ -13,6 +14,9 @@ import MenuContext from "../../store/menu-context";
 function MealEntryFormModal(props) {
   const menuCtxt = useContext(MenuContext);
   const [userResponse, setUserResponse] = useState(true);
+
+  const baseURL =
+    "https://my-mess-meal-56ef5-default-rtdb.firebaseio.com/meal-entries.json";
 
   const firstNameInputRef = useRef();
   const lastNameInputRef = useRef();
@@ -37,6 +41,11 @@ function MealEntryFormModal(props) {
       response: userResponse,
       reason: reasonEntered,
     };
+
+    // store data recieved from form on firebse
+    axios.post(baseURL, {
+      body: studentResponse,
+    });
 
     menuCtxt.incrementCount();
     let cal, msg;
