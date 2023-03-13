@@ -4,7 +4,7 @@ import styles from "./MainNavigation.module.css";
 
 function MainNavigation() {
   return (
-    <nav>
+    <nav className={styles.flexContainer}>
       <ul className={styles.container}>
         <li className={styles.listItems}>
           <Link to="/about" className={styles.link}>

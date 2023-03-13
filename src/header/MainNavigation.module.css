@@ -1,5 +1,4 @@
-.container {
-  float: right;
+ul.container {
   line-height: 100px;
   padding: 0;
   margin: 0;
@@ -20,4 +19,16 @@
   color: #9d1992;
   text-decoration: none;
   font-size: 25px;
+}
+
+nav.flexContainer {
+  display: flex;
+  /* flex: 60%; */
+}
+
+@media screen and (max-width: 1240px) {
+  nav.flexContainer li {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 }

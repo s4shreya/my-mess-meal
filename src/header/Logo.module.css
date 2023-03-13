@@ -1,11 +1,10 @@
 .logo {
-  font-size: 40px;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: white;
   letter-spacing: 3px;
   text-shadow: 2px 2px 5px;
-  float: left;
   line-height: 100px;
+  flex: 40%;
 }
 
 .logo img {
@@ -27,4 +26,13 @@
 
 .image {
   text-decoration: none;
+}
+
+@media screen and (max-width: 1240px) {
+  .name {
+    font-size: 30px;
+  }
+  img.logo {
+    height: 50px;
+  }
 }
