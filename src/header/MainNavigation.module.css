@@ -21,11 +21,6 @@ ul.container {
   font-size: 25px;
 }
 
-nav.flexContainer {
-  display: flex;
-  /* flex: 60%; */
-}
-
 @media screen and (max-width: 1240px) {
   nav.flexContainer li {
     flex-direction: column;
